@@ -1,0 +1,41 @@
+{
+    "manifest_version": 3,
+    "name": "OIDC Redirect",
+    "version": "1.0",
+    "description": "Redirects to RP using redirect uri from IDP",
+    "permissions": [
+        "storage",
+        "webNavigation",
+        "activeTab",
+        "scripting",
+        "tabs"
+    ],
+    "host_permissions": [
+        "http://localhost:4200/*",
+        "http://localhost:8000/*",
+        "https://3ebb-2405-201-d004-202a-1548-d2a-4-46a.ngrok-free.app/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["confidentials.js", "content.js"]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icon16.png",
+            "48": "icon48.png",
+            "128": "icon128.png"
+        }
+    },
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    }
+}
+  
